@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KPT / EMGS Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="stage">
+    <aside class="sidebar" aria-label="KPT EMGS navigation">
+      <div class="brand">
+        <div class="brand-mark">KPT<br>EMGS</div>
+      </div>
+
+      <span class="nav-label">Main menu</span>
+      <nav class="nav-list">
+        <a class="nav-item active" href="#dashboard" data-view-link="dashboard"><span>&#8962;</span><u>Dashboard</u></a>
+        <a class="nav-item" href="#universities" data-view-link="universities"><span>&#9671;</span><u>Universities</u></a>
+        <a class="nav-item" href="#programmes" data-view-link="programmes"><span>&#9673;</span><u>Programme Approvals</u></a>
+        <a class="nav-item" href="#applications" data-view-link="applications"><span>&#9638;</span><u>Applications</u></a>
+      </nav>
+
+      <nav class="nav-list divided admin-nav-group">
+        <a class="nav-item" href="#administration" data-view-link="administration"><span>&#9672;</span><u>Administration</u></a>
+        <a class="nav-item" href="#audit" data-view-link="audit"><span>&#9635;</span><u>Audit Log</u></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <nav class="nav-list divided support-nav">
+          <a class="nav-item" href="#help" data-view-link="help"><span>?</span><u>Help & Support</u></a>
+          <a class="nav-item" href="#settings" data-view-link="settings"><span>&#9881;</span><u>Settings</u></a>
+          <a class="nav-item" href="#" id="logoutButton"><span>&#9675;</span><u>Logout</u></a>
+        </nav>
+        <div class="account">
+          <div class="avatar">KA</div>
+          <div>
+            <strong>KPT Admin</strong>
+            <span>Oversight Team</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <section class="dashboard-card">
+        <header class="topbar">
+          <div class="top-title">
+            <h1>Dashboard</h1>
+            <span>KPT / EMGS Portal</span>
+          </div>
+          <div class="top-meta">
+            <span class="demo-badge">Demo Environment</span>
+            <button class="reset-btn" type="button">Reset Demo</button>
+          </div>
+          <div class="top-actions">
+            <form class="top-search" id="searchForm">
+              <input name="query" type="search" placeholder="Search universities, programmes, applicants">
+            </form>
+            <div class="notification-wrap">
+              <button class="icon-btn notification-btn" id="notificationButton" type="button" aria-label="Notifications" aria-expanded="false">
+                &#128276;
+                <span class="notification-count" id="notificationCount">4</span>
+              </button>
+              <div class="notification-panel" id="notificationPanel" hidden>
+                <div class="notification-head">
+                  <div><strong>Notifications</strong><small id="notificationSummary">4 unread updates</small></div>
+                  <button type="button" id="markNotificationsRead">Mark all read</button>
+                </div>
+                <div class="notification-list">
+                  <button class="notification-item unread" type="button" data-notification-target="programmes" data-default-unread="true"><strong>Programme waiting for KPT review</strong><span>Global Health Innovation Lab has been pending for 9 days.</span><small>Programme - Today</small></button>
+                  <button class="notification-item unread" type="button" data-notification-target="applications" data-default-unread="true"><strong>Delayed application case</strong><span>Aisha Bello requires escalation review.</span><small>Application - Today</small></button>
+                  <button class="notification-item unread" type="button" data-notification-target="universities" data-default-unread="true"><strong>University compliance action</strong><span>Metro Skills College has an account awaiting activation.</span><small>University - Yesterday</small></button>
+                  <button class="notification-item unread" type="button" data-notification-target="applications" data-default-unread="true"><strong>Final documents submitted</strong><span>Li Wei has submitted final documents through PGU.</span><small>Application - Yesterday</small></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="view-panel active" data-view="dashboard">
+          <section class="metrics">
+            <article class="metric mint"><span>Registered universities</span><strong>42</strong><small>37 active, 5 under review</small></article>
+            <article class="metric lavender"><span>Programme approvals</span><strong>18</strong><small>9 pending KPT review</small></article>
+            <article class="metric peach"><span>Applications this week</span><strong>418</strong><small>Across participating universities</small></article>
+            <article class="metric sky"><span>Top source country</span><strong>China</strong><small>22% of applicants</small></article>
+          </section>
+
+          <section class="chart-grid">
+            <article class="panel wide">
+              <div class="panel-head">
+                <div>
+                  <h2>National Application Trend</h2>
+                  <p>Weekly applications received across participating universities.</p>
+                </div>
+              </div>
+              <div class="bar-chart">
+                <div><i style="--h:44%" data-value="38"></i><span>10 Aug</span></div>
+                <div><i style="--h:56%" data-value="49"></i><span>11 Aug</span></div>
+                <div><i style="--h:73%" data-value="64"></i><span>12 Aug</span></div>
+                <div><i style="--h:62%" data-value="54"></i><span>13 Aug</span></div>
+                <div><i style="--h:82%" data-value="72"></i><span>14 Aug</span></div>
+                <div><i style="--h:69%" data-value="61"></i><span>15 Aug</span></div>
+                <div><i style="--h:91%" data-value="80"></i><span>16 Aug</span></div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2>Programme Pipeline</h2>
+                  <p>Programmes already submitted to KPT for decision.</p>
+                </div>
+                <span class="panel-pill">106 total</span>
+              </div>
+              <div class="pipeline-list">
+                <div><i class="sky-dot"></i><span>Pending KPT Approval</span><strong>34</strong><small>32%</small></div>
+                <div><i class="peach-dot"></i><span>Changes Requested</span><strong>12</strong><small>11%</small></div>
+                <div><i class="lavender-dot"></i><span>Resubmitted</span><strong>10</strong><small>9%</small></div>
+                <div><i class="mint-dot"></i><span>Approved</span><strong>42</strong><small>40%</small></div>
+                <div><i class="red-dot"></i><span>Rejected</span><strong>8</strong><small>8%</small></div>
+              </div>
+              <div class="pipeline-stack"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="notice-row"><span>6 change requests older than 7 days</span><button data-view-link-button="programmes">Review</button></div>
+              <div class="notice-row"><span>11 universities inactive this week</span><button data-view-link-button="universities">Watch</button></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <h2>Attention Queue</h2>
+                  <p>Items requiring KPT or EMGS action.</p>
+                </div>
+              </div>
+              <div class="activity-list">
+                <div><strong>Programme approval overdue</strong><span>Global Health Innovation Lab has been pending for 9 days.</span><small>Programme</small><button type="button" data-queue-target="programmes" data-queue-status="Pending KPT Approval" data-queue-age="Over 7 days">Review</button></div>
+                <div><strong>Changes request overdue</strong><span>Creative Media Summer School needs university follow-up.</span><small>Programme</small><button type="button" data-queue-target="programmes" data-queue-status="Changes Requested" data-queue-age="Over 14 days">Follow up</button></div>
+                <div><strong>Delayed application case</strong><span>Aisha Bello is over 60 days and needs escalation review.</span><small>Application</small><button type="button" data-queue-target="applications" data-queue-age="60 days and above">Escalate</button></div>
+                <div><strong>University compliance action</strong><span>Metro Skills College has not completed its first login and password change.</span><small>University</small><button type="button" data-queue-target="universities" data-queue-status="Account Created" data-queue-compliance="Action Required">Review</button></div>
+              </div>
+            </article>
+            <article class="panel dashboard-country-panel">
+              <div class="panel-head">
+                <div><h2>Top 10 Source Countries</h2><p>National applicant distribution across participating universities.</p></div>
+              </div>
+              <div class="horizontal-bars dashboard-country-bars">
+                <div style="--bar: 100%"><span>China</span><i></i><strong>128</strong></div>
+                <div style="--bar: 82%"><span>India</span><i></i><strong>105</strong></div>
+                <div style="--bar: 61%"><span>Japan</span><i></i><strong>78</strong></div>
+                <div style="--bar: 45%"><span>Nigeria</span><i></i><strong>58</strong></div>
+                <div style="--bar: 37%"><span>Indonesia</span><i></i><strong>47</strong></div>
+                <div style="--bar: 30%"><span>Malaysia</span><i></i><strong>39</strong></div>
+                <div style="--bar: 27%"><span>Australia</span><i></i><strong>34</strong></div>
+                <div style="--bar: 23%"><span>Spain</span><i></i><strong>29</strong></div>
+                <div style="--bar: 19%"><span>Vietnam</span><i></i><strong>24</strong></div>
+                <div style="--bar: 15%"><span>South Korea</span><i></i><strong>19</strong></div>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="universities">
+          <section class="page">
+            <section class="panel filters-panel">
+              <div class="filters university-filters">
+                <input id="universitySearch" type="search" placeholder="Search university">
+                <select id="universityStatusFilter" class="range-select"><option>All statuses</option><option>Pending Review</option><option>Clarification Requested</option><option>Rejected</option><option>Account Created</option><option>Active</option></select>
+                <button class="create-btn" type="button" id="addUniversityButton">Add new University</button>
+              </div>
+            </section>
+            <div class="split-review-layout" id="universitiesSplitLayout">
+              <div class="recent-table-wrap">
+                <table class="recent-table" data-table="universities">
+                  <thead><tr><th>University</th><th>Status <button class="section-tooltip university-flow-trigger" type="button" id="universityStatusInfo" aria-label="View university status flow" title="View university status flow" aria-haspopup="dialog">?</button></th><th>Programmes</th><th>Applicants</th><th>Avg Response</th><th>Last Activity</th><th>Action <button class="section-tooltip university-flow-trigger" type="button" id="universityActionsInfo" aria-label="Explain university actions by status" title="View opens university details. Select this icon for actions by status." aria-haspopup="dialog">?</button></th></tr></thead>
+                  <tbody>
+                    <tr data-status="active" data-compliance="clear" data-open-requests="0" data-response-time="2 days" data-compliance-signal="No open KPT credential requests"><td><img class="registry-logo" src="./assets/demo-universities/ucm.svg" alt="Universiti Cyberjaya Malaysia sample logo"><span class="table-record-name">Universiti Cyberjaya Malaysia</span><small>EDU-UCM-2026-014</small></td><td><span class="status-chip green">Active</span></td><td>12</td><td>184</td><td>2 days</td><td>17 Aug 2026</td><td><button data-university-view>View</button></td></tr>
+                    <tr data-status="pending review" data-compliance="action required" data-open-requests="2" data-response-time="3 days" data-compliance-signal="Representative letter and declaration need reply"><td><img class="registry-logo" src="./assets/demo-universities/klid.svg" alt="Kuala Lumpur Institute of Design sample logo"><span class="table-record-name">Kuala Lumpur Institute of Design</span><small>EDU-KLID-2026-019</small></td><td><span class="status-chip amber">Pending Review</span></td><td>&mdash;</td><td>&mdash;</td><td>3 days</td><td>16 Aug 2026</td><td><button data-university-view>View</button></td></tr>
+                    <tr data-status="active" data-compliance="watch" data-open-requests="1" data-response-time="5 days" data-compliance-signal="Repeated late programme clarification replies"><td><img class="registry-logo" src="./assets/demo-universities/pgu.svg" alt="Penang Global University sample logo"><span class="table-record-name">Penang Global University</span><small>EDU-PGU-2026-008</small></td><td><span class="status-chip green">Active</span></td><td>9</td><td>121</td><td>5 days</td><td>14 Aug 2026</td><td><button data-university-view>View</button></td></tr>
+                    <tr data-status="account created" data-compliance="clear" data-open-requests="0" data-response-time="Pending" data-compliance-signal="Account created; awaiting first login and password change"><td><img class="registry-logo" src="./assets/demo-universities/msc.svg" alt="Metro Skills College sample logo"><span class="table-record-name">Metro Skills College</span><small>EDU-MSC-2026-021</small></td><td><span class="status-chip blue">Account Created</span></td><td>&mdash;</td><td>&mdash;</td><td>Pending</td><td>9 Aug 2026</td><td><button data-university-view>View</button></td></tr>
+                    <tr data-status="clarification requested" data-compliance="watch" data-open-requests="1" data-response-time="4 days" data-compliance-signal="Official contact clarification pending"><td><img class="registry-logo" src="./assets/demo-universities/biu.svg" alt="Borneo International University sample logo"><span class="table-record-name">Borneo International University</span><small>EDU-BIU-2026-011</small></td><td><span class="status-chip purple">Clarification Requested</span></td><td>&mdash;</td><td>&mdash;</td><td>4 days</td><td>15 Aug 2026</td><td><button data-university-view>View</button></td></tr>
+                    <tr data-status="rejected" data-compliance="blocked" data-open-requests="0" data-response-time="-" data-compliance-signal="Eligibility failed during credential review"><td><img class="registry-logo" src="./assets/demo-universities/ncsa.svg" alt="North Coast Skills Academy sample logo"><span class="table-record-name">North Coast Skills Academy</span><small>EDU-NCSA-2026-026</small></td><td><span class="status-chip red">Rejected</span></td><td>&mdash;</td><td>&mdash;</td><td>-</td><td>11 Aug 2026</td><td><button data-university-view>View</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <aside class="side-review-panel" id="universitySidePanel" hidden>
+                <div class="side-review-empty">Select a university to review its compliance status.</div>
+              </aside>
+            </div>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="university-create">
+          <section class="page university-create-page">
+            <a class="registration-back" href="#universities" data-close-add-university>&larr; Back to universities</a>
+            <header class="registration-heading"><div><span class="registration-eyebrow">UNIVERSITY REGISTRY</span><h2>Add new university</h2><p>Create an institution profile and nominate its primary contact.</p></div><span class="registration-status">New registration</span></header>
+            <div class="registration-demo-tools"><button type="button" id="generateUniversityContent">Generate demo content</button><span id="universityGeneratorStatus" role="status">Temporary tool · Fill this form with fictional details and a sample logo.</span></div>
+            <form id="addUniversityForm" class="registration-layout" aria-labelledby="institutionFormTitle">
+              <div class="registration-main">
+                <section class="registration-card">
+                  <div class="registration-section-head"><span class="registration-number">01</span><div><h3 id="institutionFormTitle">University details</h3><p>Use the institution’s official registered information.</p></div></div>
+                  <div class="registration-fields">
+                    <label class="field-wide"><span>Official name <b>*</b></span><input id="newUniversityName" name="officialName" placeholder="e.g. Universiti Cyberjaya Malaysia" required maxlength="160" autocomplete="organization"></label>
+                    <label><span>KPT / MOHE registration number <b>*</b></span><input id="newUniversityReference" name="registration" placeholder="Enter registration number" required maxlength="80"></label>
+                    <label><span>Institute type <b>*</b></span><select name="instituteType" required><option value="">Select institute type</option><option>Public University</option><option>Private University</option><option>University College</option><option>College</option><option>Polytechnic</option><option>Other Higher Education Institution</option></select></label>
+                    <label class="field-wide"><span>Main campus address <b>*</b></span><textarea name="campusAddress" rows="3" placeholder="Street address, city, postcode and state" required maxlength="600" autocomplete="street-address"></textarea></label>
+                    <label class="field-wide"><span>Official website <b>*</b></span><input name="website" type="url" placeholder="https://www.university.edu.my" required maxlength="300" autocomplete="url"><small>Include https:// or http:// in the website address.</small></label>
+                  </div>
+                </section>
+                <section class="registration-card">
+                  <div class="registration-section-head"><span class="registration-number">02</span><div><h3>Primary contact</h3><p>The person responsible for the university’s participation.</p></div></div>
+                  <div class="registration-fields">
+                    <label><span>Full name <b>*</b></span><input name="contactName" placeholder="Contact’s full name" required maxlength="120" autocomplete="name"></label>
+                    <label><span>Job title and department <b>*</b></span><input name="contactJob" placeholder="e.g. Director, International Office" required maxlength="160" autocomplete="organization-title"></label>
+                    <label><span>Primary contact email <b>*</b></span><input name="contactEmail" type="email" placeholder="name@university.edu.my" required maxlength="180" autocomplete="email"></label>
+                    <label><span>Work phone number <b>*</b></span><input name="contactPhone" type="tel" placeholder="e.g. +60 3 1234 5678" required maxlength="40" pattern="[+0-9() .\-]{7,40}" title="Enter a work phone number using digits, spaces, +, brackets or hyphens." autocomplete="tel"></label>
+                    <label class="field-wide"><span>User role <b>*</b></span><select name="contactRole" required><option value="">Select user role</option><option>University Administrator</option><option>University Coordinator</option><option>University Viewer</option></select><small>Choose the contact’s intended access level.</small></label>
+                  </div>
+                </section>
+              </div>
+              <aside class="registration-aside">
+                <section class="registration-card logo-card"><span class="registration-eyebrow">INSTITUTION IDENTITY</span><h3>University logo</h3><p>Add the official logo to identify this institution.</p>
+                  <label class="logo-dropzone" id="universityLogoDropzone" for="newUniversityLogo"><span id="logoPlaceholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4m-4 4 4-4 4 4M4 15v5h16v-5"/></svg></span><img id="universityLogoPreview" alt="University logo preview" hidden><strong id="logoUploadLabel">Click to upload</strong><span>or drag and drop your logo here</span><small>PNG, JPG or WebP · Maximum 2 MB</small><input id="newUniversityLogo" name="logo" type="file" accept="image/png,image/jpeg,image/webp"></label>
+                  <div class="logo-file-actions" hidden id="logoFileActions"><span id="logoFileName"></span><button type="button" id="removeUniversityLogo">Remove</button></div><p id="logoError" class="registration-error" role="alert" hidden></p><small class="logo-tip">Optional. A square image with a clear background works best.</small>
+                </section>
+                <section class="registration-guide"><h3>Before you add</h3><p>Check that the registration number matches KPT / MOHE records and the primary contact details are current.</p><div><span class="status-chip blue">Account Created</span><p>KPT-created profiles become Active after the university logs in and changes its temporary password.</p></div></section>
+              </aside>
+              <p id="universityDraftStatus" class="registration-draft-status" role="status" hidden></p>
+              <footer class="registration-footer"><span><b>*</b> Required fields</span><div><button type="button" data-close-add-university>Cancel</button><button type="button" id="saveUniversityDraft">Save draft</button><button class="primary" type="submit">Add university &rarr;</button></div></footer>
+            </form>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="university-detail">
+          <section class="page university-detail-page">
+            <section class="panel record-hero">
+              <div>
+                <button class="back-link" type="button" data-back-universities>&larr; Back to universities</button>
+                <h2 id="universityDetailName">University name</h2>
+                <p id="universityDetailMeta">Institution reference</p>
+              </div>
+              <div class="record-status" id="universityDetailStatus"></div>
+            </section>
+
+            <nav class="detail-tabs" aria-label="University detail tabs">
+              <button class="active" type="button" data-university-tab="overview">University details</button>
+              <button type="button" data-university-tab="programmes">Programmes</button>
+              <button type="button" data-university-tab="applicants">Applicants</button>
+            </nav>
+
+            <div class="university-full-layout"><section class="university-detail-content">
+              <div class="detail-tab-panel active" data-university-tab-panel="overview">
+                <div class="detail-card-grid" id="universityOverview"></div>
+              </div>
+              <div class="detail-tab-panel" data-university-tab-panel="programmes"><div id="universityProgrammesContent"></div></div>
+              <div class="detail-tab-panel" data-university-tab-panel="applicants"><div id="universityApplicantsContent"></div></div>
+            </section><div id="universityFullActions"></div></div>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="programmes">
+          <section class="page">
+            <section class="panel filters-panel">
+              <div class="filters programme-filters">
+                <input id="programmeSearch" type="search" placeholder="Search programme or university">
+                <select id="programmeStatusFilter" class="range-select"><option>All statuses</option><option>Pending KPT Approval</option><option>Changes Requested</option><option>Resubmitted</option><option>Approved</option><option>Rejected</option></select>
+                <select id="programmeAgeFilter" class="range-select"><option>Any age</option><option>Over 7 days</option><option>Over 14 days</option></select>
+              </div>
+            </section>
+            <div class="split-review-layout" id="programmesSplitLayout">
+              <div class="recent-table-wrap">
+                <table class="recent-table" data-table="programmes">
+                  <thead><tr><th>Programme</th><th>University</th><th>Category</th><th>Status <span class="section-tooltip" tabindex="0" aria-label="Programme approval status explanation">?<span><b>Pending KPT Approval</b> Programme has been submitted by the university and is waiting for KPT review.<br><br><b>Changes Requested</b> KPT has asked the university to correct or clarify programme details before approval.<br><br><b>Resubmitted</b> University has sent corrected or post-approval changes back to KPT for another review.<br><br><b>Approved</b> KPT has accepted the programme. KPT can launch it as Live when ready.<br><br><b>Rejected</b> KPT declined the submission and the programme cannot proceed in its current form.</span></span></th><th>Submitted</th><th>Age</th><th>Action</th></tr></thead>
+                  <tbody>
+                    <tr data-status="pending kpt approval" data-age="over 7 days" data-duration="30 Days" data-fee="RM 3,500" data-language="English" data-target="General Public (including student)" data-credit="Eligible" data-activities="Mangrove survey, biodiversity mapping, guided conservation lab" data-outcome="Participants complete field sampling, biodiversity reporting, and a reflective project assessed by university facilitators." data-overview="Tropical Biodiversity Programme introduces participants to Malaysian conservation, field research, and academic learning through a structured short programme."><td><span class="table-record-name">Tropical Biodiversity Programme</span></td><td>Universiti Cyberjaya Malaysia</td><td>Nature & Environment</td><td><span class="status-chip amber">Pending KPT Approval</span></td><td>8 Aug 2026</td><td>9 days</td><td><button data-programme-view>View</button></td></tr>
+                    <tr data-status="changes requested" data-age="over 14 days" data-duration="14 Days" data-fee="RM 1,800" data-language="Malay" data-target="Student only" data-credit="Not eligible" data-activities="Language workshop, cultural interview, campus immersion" data-outcome="Participants complete language practice, cultural activities, and a short assessed presentation." data-overview="Malay Language & Culture gives international learners a short immersion into Malay communication, cultural etiquette, and community learning."><td><span class="table-record-name">Malay Language &amp; Culture</span></td><td>Kuala Lumpur Institute of Design</td><td>Language & Culture</td><td><span class="status-chip purple">Changes Requested</span></td><td>1 Aug 2026</td><td>16 days</td><td><button data-programme-view>View</button></td></tr>
+                    <tr data-status="resubmitted" data-age="over 7 days" data-duration="21 Days" data-fee="RM 4,200" data-language="English" data-target="Group" data-credit="Eligible" data-activities="Startup clinic, digital marketing lab, pitch review" data-outcome="Participants design a digital venture concept and submit a reviewed innovation pitch." data-overview="Digital Entrepreneurship Bootcamp blends innovation workshops, Malaysian startup exposure, and guided digital business development."><td><span class="table-record-name">Digital Entrepreneurship Bootcamp</span></td><td>Penang Global University</td><td>Business & Innovation</td><td><span class="status-chip blue">Resubmitted</span></td><td>9 Aug 2026</td><td>8 days</td><td><button data-programme-view>View</button></td></tr>
+                    <tr data-status="approved" data-age="any age" data-duration="10 Days" data-fee="RM 2,100" data-language="English" data-target="General Public (including student)" data-credit="Eligible" data-activities="Museum visit, heritage walk, reflective journal" data-outcome="Participants analyse Malaysian heritage sites and complete a guided cultural reflection." data-overview="Malaysian Heritage Experience introduces participants to culture, heritage interpretation, and academic reflection."><td><span class="table-record-name">Malaysian Heritage Experience</span></td><td>Borneo International University</td><td>Culture & Heritage</td><td><span class="status-chip green">Approved</span></td><td>13 Aug 2026</td><td>4 days</td><td><button data-programme-view>View</button></td></tr>
+                    <tr data-status="rejected" data-age="any age" data-duration="12 Days" data-fee="RM 2,600" data-language="English" data-target="Individual" data-credit="Not eligible" data-activities="Culinary demo, food market visit, recipe documentation" data-outcome="Participants document local food culture and complete a short culinary reflection." data-overview="Food Culture Field School was submitted as a short culinary culture programme for international participants."><td><span class="table-record-name">Food Culture Field School</span></td><td>Metro Skills College</td><td>Culinary Culture</td><td><span class="status-chip red">Rejected</span></td><td>10 Aug 2026</td><td>7 days</td><td><button data-programme-view>View</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <aside class="side-review-panel" id="programmeSidePanel" hidden>
+                <div class="side-review-empty">Select a programme to review its KPT approval details.</div>
+              </aside>
+            </div>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="applications">
+          <section class="page">
+            <section class="panel filters-panel">
+              <div class="filters">
+                <input id="applicationSearch" type="search" placeholder="Search tracking code, applicant, university">
+                <select id="applicationStageFilter" class="range-select"><option>All stages</option><option>New Application</option><option>Documents Required</option><option>Req. Document Submitted</option><option>Approved</option><option>Rejected</option><option>Withdrawn</option></select>
+                <select id="applicationNationalityFilter" class="range-select"><option>Any nationality</option><option>Australia</option><option>China</option><option>India</option><option>Japan</option><option>Malaysia</option><option>Nigeria</option><option>Spain</option></select>
+                <select id="applicationProgrammeTypeFilter" class="range-select" aria-label="Programme type"><option value="">All programme types</option></select>
+              </div>
+            </section>
+            <div class="recent-table-wrap split-review-layout" id="applicationsSplitLayout">
+              <table class="recent-table" data-table="applications">
+                <thead><tr><th>Applicant</th><th>University</th><th>Programme</th><th>Stage</th><th>Last Updated</th><th>Applied date</th><th>Action <span class="section-tooltip" tabindex="0" aria-label="Application action explanation">?<span><b>View</b> Opens the application record for review.<br><br><b>Escalate</b> Appears only when an active application is more than 60 days old, so KPT/EMGS can follow up on long-running university or applicant delays.</span></span></th></tr></thead>
+                <tbody>
+                  <tr data-stage="new application" data-nationality="india"><td>Priya Menon<small>EDT-2026-002148</small><small>India</small></td><td>Universiti Cyberjaya Malaysia</td><td>Tropical Biodiversity Programme</td><td><span class="status-chip blue">New Application</span></td><td>17 Aug 2026</td><td>2 days</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                  <tr data-stage="documents required" data-nationality="china"><td>Li Wei<small>EDT-2026-002151</small><small>China</small></td><td>Penang Global University</td><td>Digital Entrepreneurship Bootcamp</td><td><span class="status-chip amber">Documents Required</span></td><td>15 Aug 2026</td><td>4 days</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                  <tr data-stage="req. document submitted" data-nationality="nigeria"><td>Aisha Bello<small>EDT-2026-002160</small><small>Nigeria</small></td><td>Kuala Lumpur Institute of Design</td><td>Malay Language &amp; Culture</td><td><span class="status-chip blue">Req. Document Submitted</span></td><td>13 Aug 2026</td><td>67 days</td><td><span class="table-actions"><button data-row-action="View application">View</button><button data-row-action="Escalate case">Escalate</button></span></td></tr>
+                  <tr data-stage="approved" data-nationality="japan"><td>Kenji Sato<small>EDT-2026-002177</small><small>Japan</small></td><td>Borneo International University</td><td>Malaysian Heritage Experience</td><td><span class="status-chip green">Approved</span></td><td>12 Aug 2026</td><td>7 days</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                  <tr data-stage="new application" data-nationality="malaysia"><td>Ravi Nair<small>EDT-2026-002188</small><small>Malaysia</small></td><td>Universiti Cyberjaya Malaysia</td><td>Sustainable Cities Programme</td><td><span class="status-chip blue">New Application</span></td><td>11 Aug 2026</td><td>8 days</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                  <tr data-stage="documents required" data-nationality="spain"><td>Sofia Martinez<small>EDT-2026-002194</small><small>Spain</small></td><td>Metro Skills College</td><td>Food Culture Field School</td><td><span class="status-chip amber">Documents Required</span></td><td>10 Aug 2026</td><td>61 days</td><td><span class="table-actions"><button data-row-action="View application">View</button><button data-row-action="Escalate case">Escalate</button></span></td></tr>
+                  <tr data-stage="req. document submitted" data-nationality="australia"><td>Daniel Brown<small>EDT-2026-002205</small><small>Australia</small></td><td>Penang Global University</td><td>Applied AI for Tourism</td><td><span class="status-chip blue">Req. Document Submitted</span></td><td>9 Aug 2026</td><td>12 days</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                  <tr data-stage="approved" data-nationality="china"><td>Chen Wei<small>EDT-2026-002216</small><small>China</small></td><td>Borneo International University</td><td>Marine Conservation Lab</td><td><span class="status-chip green">Approved</span></td><td>8 Aug 2026</td><td>72 days</td><td><span class="table-actions"><button data-row-action="View application">View</button><button data-row-action="Escalate case">Escalate</button></span></td></tr>
+                  <tr data-stage="withdrawn" data-nationality="india"><td>Sara Khan<small>EDT-2026-002228</small><small>India</small></td><td>Kuala Lumpur Institute of Design</td><td>Malay Language &amp; Culture</td><td><span class="status-chip neutral">Withdrawn</span></td><td>6 Aug 2026</td><td>-</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                  <tr data-stage="rejected" data-nationality="japan"><td>Daichi Watanabe<small>EDT-2026-002239</small><small>Japan</small></td><td>Metro Skills College</td><td>Food Culture Field School</td><td><span class="status-chip red">Rejected</span></td><td>5 Aug 2026</td><td>-</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                  <tr data-stage="withdrawn" data-nationality="malaysia"><td>Lim Mei Xin<small>EDT-2026-002241</small><small>Malaysia</small></td><td>Universiti Cyberjaya Malaysia</td><td>Digital Entrepreneurship Bootcamp</td><td><span class="status-chip neutral">Withdrawn</span></td><td>4 Aug 2026</td><td>-</td><td><span class="table-actions"><button data-row-action="View application">View</button></span></td></tr>
+                </tbody>
+              </table>
+              <aside class="side-review-panel" id="applicationSidePanel" hidden>
+                <div class="side-review-empty">Select an application to review its details.</div>
+              </aside>
+            </div>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="administration">
+          <section class="page">
+            <section class="panel role-toolbar">
+              <div class="panel-head">
+                <div><h2>User Management</h2><p>Manage KPT and EMGS staff access for this prototype.</p></div>
+                <button class="create-btn" type="button" id="addUser">Add User</button>
+              </div>
+            </section>
+            <div class="recent-table-wrap">
+              <table class="recent-table" data-table="users"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Last Login</th><th>Action</th></tr></thead><tbody>
+                <tr><td><strong>Farah Kamil</strong></td><td>farah.kamil@kpt.example</td><td>KPT Admin</td><td><span class="status-chip green">Active</span></td><td>17 Aug 2026, 9:12 AM</td><td><button data-user-edit>Edit</button></td></tr>
+                <tr><td><strong>Ravi Chandran</strong></td><td>ravi@emgs.example</td><td>EMGS Officer</td><td><span class="status-chip green">Active</span></td><td>16 Aug 2026, 4:10 PM</td><td><button data-user-edit>Edit</button></td></tr>
+                <tr><td><strong>Siti Hanis</strong></td><td>hanis@kpt.example</td><td>KPT Officer</td><td><span class="status-chip neutral">Inactive</span></td><td>10 Aug 2026, 11:05 AM</td><td><button data-user-edit>Edit</button></td></tr>
+              </tbody></table>
+            </div>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="audit">
+          <section class="page">
+            <section class="panel role-toolbar">
+              <div class="panel-head">
+                <div><h2>Audit Log</h2><p>Administrative activity across this KPT / EMGS prototype.</p></div>
+              </div>
+            </section>
+            <section class="panel filters-panel"><div class="filters"><input id="auditSearch" type="search" placeholder="Search audit records"><select id="auditEntityFilter" class="range-select"><option>All entities</option><option>Programme</option><option>University</option><option>Application</option><option>EMGS</option><option>User</option></select><button class="apply-btn" type="button" data-filter-button>Apply</button></div></section>
+            <div class="recent-table-wrap">
+              <table class="recent-table audit-table" id="auditTable"><thead><tr><th>Date & Time</th><th>User</th><th>Action</th><th>Entity</th></tr></thead><tbody>
+                <tr><td>17 Aug 2026, 9:20 AM</td><td>Farah Kamil</td><td>Approved Borneo Rainforest Immersion</td><td>Programme</td></tr>
+                <tr><td>16 Aug 2026, 4:15 PM</td><td>Ravi Chandran</td><td>Escalated application case EDT-2026-002160</td><td>Application</td></tr>
+                <tr><td>16 Aug 2026, 2:30 PM</td><td>System</td><td>Marked KLID compliance as Action Required</td><td>University</td></tr>
+              </tbody></table>
+            </div>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="help">
+          <section class="page">
+            <article class="panel help-card">
+              <div class="panel-head"><div><h2>Help & Support</h2><p>Guide for KPT / EMGS oversight teams using this prototype.</p></div></div>
+              <nav class="detail-tabs help-tabs" aria-label="Help topics">
+                <button class="active" type="button" data-help-tab="overview">Overview</button>
+                <button type="button" data-help-tab="universities">Universities</button>
+                <button type="button" data-help-tab="programmes">Programmes</button>
+                <button type="button" data-help-tab="applications">Applications</button>
+                <button type="button" data-help-tab="admin">Admin & Support</button>
+              </nav>
+              <div class="help-tab-panel active" data-help-tab-panel="overview">
+                <div class="help-grid">
+                  <section class="help-block"><h3>What This Dashboard Is For</h3><p>This dashboard gives KPT / EMGS one place to monitor universities, programme approvals, application delays, compliance signals, and administrative actions.</p></section>
+                  <section class="help-block"><h3>Daily Workflow</h3><p>Start from the Dashboard attention queue, open the item that needs action, review the side panel, then approve, request clarification, escalate, or record the decision.</p></section>
+                  <section class="help-block"><h3>Audit Trail</h3><p>Prototype actions such as approvals, clarification requests, user edits, and escalations are written into Audit Log so the demo can show accountability.</p></section>
+                </div>
+                <div class="recent-table-wrap">
+                  <table class="recent-table help-table"><thead><tr><th>Area</th><th>Primary Use</th><th>Common Action</th></tr></thead><tbody>
+                    <tr><td>Dashboard</td><td>Quickly see national-level activity and items requiring attention.</td><td>Use attention queue buttons to jump to the right operational tab.</td></tr>
+                    <tr><td>Universities</td><td>Monitor institutions, credentials, programmes, applicants, and compliance status.</td><td>View details, request clarification, suspend, reactivate, or clear compliance.</td></tr>
+                    <tr><td>Programme Approvals</td><td>Review programmes submitted by universities before they can go live.</td><td>Approve, reject, or request changes with clear KPT notes.</td></tr>
+                    <tr><td>Applications</td><td>Monitor delayed or escalated applications across universities.</td><td>Open the side panel, request university updates, or escalate cases above 60 days.</td></tr>
+                  </tbody></table>
+                </div>
+              </div>
+              <div class="help-tab-panel" data-help-tab-panel="universities">
+                <div class="help-grid">
+                  <section class="help-block"><h3>Table View</h3><p>Use the university table to scan status, programme count, applicant volume, compliance signal, average response time, and last activity.</p></section>
+                  <section class="help-block"><h3>Side Review</h3><p>Click View to open the right-side panel. It shows overview, programme breakdown, compliance records, credentials, and KPT actions without leaving the list.</p></section>
+                  <section class="help-block"><h3>Full Details</h3><p>Use Expand full view when a longer review is needed, especially for credentials, compliance history, and programme breakdown.</p></section>
+                </div>
+                <div class="help-note"><strong>Compliance actions:</strong> Request clarification for missing or unclear credentials, mark watch for risk monitoring, clear compliance when resolved, suspend when participation must stop, and reactivate after issues are fixed.</div>
+              </div>
+              <div class="help-tab-panel" data-help-tab-panel="programmes">
+                <div class="help-grid">
+                  <section class="help-block"><h3>Approval Flow</h3><p>Programmes move from Draft to Pending KPT Approval. KPT can approve and launch live, or request changes. Reworked approved programmes return as Resubmitted.</p></section>
+                  <section class="help-block"><h3>Reviewing A Programme</h3><p>Click View to inspect submitted details, overview, activities, learning scope, images, and university notes.</p></section>
+                  <section class="help-block"><h3>KPT Decisions</h3><p>Approve when complete, request changes when the university must correct details, or reject when the programme cannot proceed.</p></section>
+                </div>
+                <div class="recent-table-wrap">
+                  <table class="recent-table help-table"><thead><tr><th>Status</th><th>Meaning</th><th>Who Acts</th></tr></thead><tbody>
+                    <tr><td>Pending KPT Approval</td><td>Programme has been submitted and is waiting for KPT review.</td><td>KPT</td></tr>
+                    <tr><td>Changes Requested</td><td>KPT has asked the university to correct or complete programme details.</td><td>University</td></tr>
+                    <tr><td>Resubmitted</td><td>An approved programme was edited and sent back for approval.</td><td>KPT</td></tr>
+                    <tr><td>Live</td><td>KPT has launched the programme and applications can be received.</td><td>Monitor only</td></tr>
+                    <tr><td>Archived</td><td>Programme is no longer active, but history remains visible.</td><td>University / KPT monitor</td></tr>
+                  </tbody></table>
+                </div>
+              </div>
+              <div class="help-tab-panel" data-help-tab-panel="applications">
+                <div class="help-grid">
+                  <section class="help-block"><h3>Purpose</h3><p>The Applications tab is for KPT / EMGS monitoring, especially long-running cases and applications that need university follow-up.</p></section>
+                  <section class="help-block"><h3>Age Filter</h3><p>Use Below 60 days for normal monitoring and 60 days and above to find cases that may need escalation.</p></section>
+                  <section class="help-block"><h3>Side Panel</h3><p>Click View to see applicant details, university, programme, documents, current stage, and available KPT / EMGS actions.</p></section>
+                </div>
+                <div class="help-note"><strong>Escalation rule:</strong> Active applications older than 60 days show an Escalate option. Closed applications such as Approved, Rejected, or Withdrawn are not treated as active age issues.</div>
+              </div>
+              <div class="help-tab-panel" data-help-tab-panel="admin">
+                <div class="help-grid">
+                  <section class="help-block"><h3>Administration</h3><p>Manage dashboard staff accounts. Add users, edit roles, or update account status from User Management.</p></section>
+                  <section class="help-block"><h3>Audit Log</h3><p>Review actions recorded across the prototype, including decisions, user edits, clarification requests, and escalations.</p></section>
+                  <section class="help-block"><h3>Settings</h3><p>Control notification preferences and security settings for the logged-in KPT / EMGS staff user.</p></section>
+                </div>
+                <div class="help-support-box">
+                  <h3>Contact Support</h3>
+                  <p><strong>Email:</strong> support@malaysiaedutourism.example</p>
+                  <p><strong>Response target:</strong> 1 working day for demo support, same day for blocked stakeholder walkthroughs.</p>
+                  <p><strong>Include:</strong> Page name, action attempted, applicant/programme/university reference, and screenshot if possible.</p>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        <div class="view-panel" data-view="settings">
+          <section class="page">
+            <article class="panel settings-card">
+              <div class="panel-head"><div><h2>Notifications</h2><p>Configure oversight alerts.</p></div></div>
+              <div class="settings-list">
+                <label class="settings-toggle-row"><span><strong>Programme approval alerts</strong><small>Submitted, resubmitted, or delayed programme reviews.</small></span><span class="toggle-switch"><input type="checkbox" checked><span></span></span></label>
+                <label class="settings-toggle-row"><span><strong>EMGS delayed cases</strong><small>Cases exceeding target processing time.</small></span><span class="toggle-switch"><input type="checkbox" checked><span></span></span></label>
+                <label class="settings-toggle-row"><span><strong>University compliance alerts</strong><small>Suspension, clarification, or inactivity events.</small></span><span class="toggle-switch"><input type="checkbox" checked><span></span></span></label>
+              </div>
+            </article>
+            <article class="panel settings-card">
+              <div class="panel-head"><div><h2>Sidebar visibility</h2><p>Choose which support content appears in your dashboard.</p></div></div>
+              <div class="settings-list"><label class="settings-toggle-row"><span><span class="settings-option-title">Hide Help &amp; Support</span><small>Hide the sidebar menu item and its page content. Uncheck to show them again.</small></span><input class="settings-checkbox" type="checkbox" id="hideHelpSupport"></label></div>
+            </article>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="universityProfileBackdrop" class="university-profile-backdrop" hidden></div>
+
+  <div class="request-modal" id="universityStatusFlowModal" hidden>
+    <section class="request-modal-card university-flow-card" role="dialog" aria-modal="true" aria-labelledby="universityFlowTitle" aria-describedby="universityFlowDescription">
+      <div class="modal-head"><h3 id="universityFlowTitle">University status flow</h3><button class="modal-close" type="button" data-close-university-flow aria-label="Close university status flow">X</button></div>
+      <p id="universityFlowDescription" class="university-flow-intro">Two entry routes. One status column.</p>
+      <div class="university-flow-routes">
+        <section class="university-flow-route"><h4><span>01</span> KPT creates the profile</h4><p>KPT adds the university and creates its account.</p><div class="university-flow-node blue">Account Created<small>Username and temporary password issued</small></div></section>
+        <section class="university-flow-route"><h4><span>02</span> University applies</h4><div class="university-flow-node amber">Pending Review<small>Application submitted to KPT</small></div><div class="university-flow-arrow" aria-hidden="true">&darr;</div><div class="university-flow-decision">KPT reviews the application</div><div class="university-flow-branches"><div><span class="university-flow-branch-label">Accept &darr;</span><div class="university-flow-node blue">Account Created</div></div><div><span class="university-flow-branch-label">Clarify &darr;</span><div class="university-flow-node purple">Clarification Requested</div><small class="university-flow-return">University replies &rarr; Pending Review</small></div><div><span class="university-flow-branch-label">Reject &darr;</span><div class="university-flow-node red">Rejected</div><small class="university-flow-return">Application closed</small></div></div></section>
+      </div>
+      <div class="university-flow-activation"><div class="university-flow-node blue">Account Created</div><div class="university-flow-activation-step"><span>&rarr;</span><p>University logs in<br>and changes its temporary password</p><span>&rarr;</span></div><div class="university-flow-node green">Active<small>University can use its account</small></div></div>
+      <p class="university-flow-note">Creating or accepting a profile does not make it Active. Activation follows the first login and password change.</p>
+      <div class="modal-actions"><button class="primary" type="button" data-close-university-flow>Got it</button></div>
+    </section>
+  </div>
+
+  <div class="request-modal university-action-modal" id="universityActionModal" hidden>
+    <section class="request-modal-card university-action-dialog" role="dialog" aria-modal="true" aria-labelledby="universityActionModalTitle">
+      <div class="modal-head"><h3 id="universityActionModalTitle">University action</h3><button class="modal-close" type="button" data-close-university-action aria-label="Close university action">&times;</button></div>
+      <div id="universityActionModalBody"></div>
+    </section>
+  </div>
+
+  <div class="request-modal" id="confirmModal" hidden>
+    <div class="request-modal-card" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <div class="modal-head"><h3 id="confirmTitle">Confirm action</h3><button class="modal-close" type="button" id="closeConfirm">X</button></div>
+      <p id="confirmMessage">Confirm this action.</p>
+      <div class="modal-actions"><button type="button" id="cancelConfirm">Cancel</button><button class="primary" type="button" id="applyConfirm">Confirm</button></div>
+    </div>
+  </div>
+
+  <div class="request-modal" id="detailModal" hidden>
+    <div class="request-modal-card detail-modal-card" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="modal-head"><h3 id="detailTitle">Record details</h3><button class="modal-close" type="button" id="closeDetail">X</button></div>
+      <div class="detail-modal-body" id="detailBody"></div>
+      <div class="modal-actions"><button type="button" id="closeDetailAction">Close</button></div>
+    </div>
+  </div>
+
+  <div class="request-modal" id="clarificationModal" hidden>
+    <div class="request-modal-card" role="dialog" aria-modal="true" aria-labelledby="clarificationTitle">
+      <div class="modal-head"><h3 id="clarificationTitle">Request clarification</h3><button class="modal-close" type="button" id="closeClarification">X</button></div>
+      <label class="modal-field">
+        <span>Message to university</span>
+        <textarea id="clarificationMessage" rows="5" placeholder="Tell the university which registration details need clarification"></textarea>
+      </label>
+      <div class="modal-actions"><button type="button" id="cancelClarification">Cancel</button><button class="primary" type="button" id="sendClarification">Send request</button></div>
+    </div>
+  </div>
+
+  <div class="request-modal" id="userModal" hidden>
+    <div class="request-modal-card" role="dialog" aria-modal="true" aria-labelledby="userModalTitle">
+      <div class="modal-head"><h3 id="userModalTitle">Add User</h3><button class="modal-close" type="button" id="closeUserModal">X</button></div>
+      <div class="form-grid">
+        <label><span>Full name</span><input id="userName" type="text" placeholder="Officer name"></label>
+        <label><span>Email</span><input id="userEmail" type="email" placeholder="name@kpt.example"></label>
+        <label><span>Login ID</span><input id="userLogin" type="text" placeholder="login id"></label>
+        <label><span>Password</span><input id="userPassword" type="password" placeholder="Temporary password"></label>
+        <label><span>Role</span><select id="userRole"><option>KPT Admin</option><option>KPT Officer</option><option>EMGS Officer</option></select></label>
+        <label><span>Status</span><select id="userStatus"><option>Active</option><option>Inactive</option></select></label>
+      </div>
+      <div class="modal-actions"><button type="button" id="cancelUserModal">Cancel</button><button class="primary" type="button" id="saveUserModal">Save User</button></div>
+    </div>
+  </div>
+
+
+  <script src="./demo-data.js"></script>
+  <script src="./dashboard-data.js"></script>
+  <script src="./script.js"></script>
+  <script src="./list-export.js"></script>
+</body>
+</html>
